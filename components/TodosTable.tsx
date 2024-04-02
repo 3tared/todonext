@@ -27,25 +27,24 @@ export default function TodosTable({ todos }: { todos: ITodo[] }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {todos &&
-          todos.map((todo) => (
-            <TableRow key={todo.id}>
-              <TableCell className="font-medium">
-                {todo.createdAt?.toString().slice(0, 16)}
-              </TableCell>
-              <TableCell>{todo.title}</TableCell>
-              <TableCell>
-                {todo.completed ? (
-                  <Badge>Completed</Badge>
-                ) : (
-                  <Badge variant={'secondary'}>UnCompleted</Badge>
-                )}
-              </TableCell>
-              <TableCell className="flex items-center space-x-2 justify-end">
-                <TodosTableActions todo={todo} key={todo.id} />
-              </TableCell>
-            </TableRow>
-          ))}
+        {todos.map((todo) => (
+          <TableRow key={todo?.id}>
+            <TableCell className="font-medium">
+              {todo.createdAt?.toString().slice(0, 16)}
+            </TableCell>
+            <TableCell>{todo?.title}</TableCell>
+            <TableCell>
+              {todo?.completed ? (
+                <Badge>Completed</Badge>
+              ) : (
+                <Badge variant={'secondary'}>UnCompleted</Badge>
+              )}
+            </TableCell>
+            <TableCell className="flex items-center space-x-2 justify-end">
+              <TodosTableActions todo={todo} key={todo?.id} />
+            </TableCell>
+          </TableRow>
+        ))}
       </TableBody>
 
       <TableFooter>
